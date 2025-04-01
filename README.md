@@ -14,4 +14,4 @@
 • Validação de regras e relacionamentos
 
 #Limpar BD do sqlite, subir para repositorio, colocar o banco vazio no gitignore
-#Removar composer lock e subir para repositorio sem ele
+#Removar composer lock e subir para repositorio sem ele,

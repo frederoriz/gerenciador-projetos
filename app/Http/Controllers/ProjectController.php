@@ -29,7 +29,15 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validator($request);
+
+        Project::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'end_date' => $request->input('end_date'),
+        ]);
+
+        return redirect()->route('projects.index')->with('success', 'Projeto criado com sucesso!');
     }
 
     /**
@@ -45,6 +53,13 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+
+        $project = Project::find($project->id);
+
+        if (!$project) {
+            return redirect()->route('projects.index')->with('error', 'Projeto não encontrado.');
+        }
+
         return view('projects.edit', compact('project'));
     }
 
@@ -53,7 +68,15 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $this->validator($request);
+
+        $project->update([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'end_date' => $request->input('end_date'),
+        ]);
+
+        return redirect()->route('projects.index')->with('success', 'Projeto atualizado com sucesso!');
     }
 
     /**
@@ -61,6 +84,17 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('projects.index')->with('success', 'Projeto excluído com sucesso!');
+    }
+
+    private function validator(Request $request)
+    {
+        return $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'end_date' => 'nullable|date',
+        ]);
     }
 }
