@@ -11,7 +11,7 @@ class ProjectTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Test the project index route.
+     * Testa a rota de listagem de projetos.
      *
      * @return void
      */
@@ -25,7 +25,7 @@ class ProjectTest extends TestCase
     }
 
     /**
-     * Test the project creation form.
+     * Testa o formulário de criação de projeto.
      *
      * @return void
      */
@@ -43,7 +43,7 @@ class ProjectTest extends TestCase
     }
 
     /**
-     * Test the project creation form with invalid data.
+     * Testa o formulário de criação de projeto com dados inválidos.
      *
      * @return void
      */

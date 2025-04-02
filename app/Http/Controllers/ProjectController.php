@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProjectController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Exibe uma lista dos recursos.
      */
     public function index()
     {
@@ -17,7 +17,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostra o formulário para criar um novo recurso.
      */
     public function create()
     {
@@ -25,7 +25,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Armazena um recurso recém-criado no armazenamento.
      */
     public function store(Request $request)
     {
@@ -41,7 +41,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mostra o formulário para editar o recurso especificado.
      */
     public function edit(Project $project)
     {
@@ -56,7 +56,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Atualiza o recurso especificado no armazenamento.
      */
     public function update(Request $request, Project $project)
     {
@@ -72,7 +72,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove o recurso especificado do armazenamento.
      */
     public function destroy(Project $project)
     {
@@ -82,7 +82,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Validate the request data.
+     * Valida os dados da requisição.
      *
      * @param Request $request
      * @return void

@@ -10,17 +10,25 @@ class TaskTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    /**
+     * Testa a criação de uma tarefa com dados válidos.
+     *
+     * @return void
+     */
     public function pertence_a_um_projeto()
     {
         $task = Task::factory()->create();
         $this->assertNotNull($task->project);
     }
 
-    /** @test */
+    /**
+     * Testa a criação de uma tarefa com dados válidos.
+     *
+     * @return void
+     */
     public function status_padrao_e_pendente()
     {
-        $task = Task::factory()->create(['status' => null]);
+        $task = Task::factory()->create();
         $this->assertEquals('pending', $task->fresh()->status);
     }
 }

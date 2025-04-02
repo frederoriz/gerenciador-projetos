@@ -15,6 +15,9 @@ class Task extends Model
         'project_id',
     ];
 
+    /**
+     * Define a relação entre a tarefa e o projeto.
+     */
     public function project()
     {
         return $this->belongsTo(Project::class);

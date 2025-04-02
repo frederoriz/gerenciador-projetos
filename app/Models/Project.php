@@ -19,6 +19,11 @@ class Project extends Model
         'end_date' => 'datetime',
     ];
 
+    /**
+     * Define a relação entre o projeto e as tarefas.
+     *
+     * @return void
+     */
     public function tasks()
     {
         return $this->hasMany(Task::class);

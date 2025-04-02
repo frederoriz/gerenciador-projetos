@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests\Feature;
+
+use App\Enums\TaskStatus;
 use App\Models\Task;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -8,7 +11,11 @@ class TaskTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    /**
+     * Testa a listagem de tarefas.
+     *
+     * @return void
+     */
     public function edita_tarefa()
     {
         $task = Task::factory()->create();
@@ -18,18 +25,29 @@ class TaskTest extends TestCase
             ->assertViewHas('task');
     }
 
-    /** @test */
+    /**
+     * Testa a criação de uma tarefa com dados válidos.
+     *
+     * @return void
+     */
     public function atualiza_tarefa()
     {
-        $task = Task::factory()->create(['description' => 'Antiga']);
+        $task = Task::factory()->create([
+            'description' => 'Antiga',
+            'status' => TaskStatus::PENDING->value
+        ]);
 
-        $this->put(route('tasks.update', $task), [
-            'description' => 'Nova descrição'
-        ])->assertRedirect(route('projects.tasks.index', $task->project));
+        $response = $this->put(route('tasks.update', $task), [
+            'description' => 'Nova descrição',
+            'status' => TaskStatus::COMPLETED->value // Campo obrigatório
+        ]);
+
+        $response->assertRedirect(route('projects.tasks.index', $task->project));
 
         $this->assertDatabaseHas('tasks', [
             'id' => $task->id,
-            'description' => 'Nova descrição'
+            'description' => 'Nova descrição',
+            'status' => TaskStatus::COMPLETED->value
         ]);
     }
 }

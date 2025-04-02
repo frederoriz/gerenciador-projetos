@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule;
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Exibe uma lista do recurso.
      */
     public function index(Project $project)
     {
@@ -21,7 +21,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostra o formulário para criar um novo recurso.
      */
     public function create(Project $project)
     {
@@ -30,7 +30,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Armazena um recurso recém-criado no armazenamento.
      */
     public function store(Request $request, Project $project)
     {
@@ -42,7 +42,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mostra o formulário para editar o recurso especificado.
      */
     public function edit(Task $task)
     {
@@ -52,7 +52,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Atualiza o recurso especificado no armazenamento.
      */
     public function update(Request $request, Task $task)
     {
@@ -64,7 +64,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove o recurso especificado do armazenamento.
      */
     public function destroy(Task $task)
     {
@@ -76,7 +76,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Validate the request data.
+     * Valida os dados da requisição.
      */
     private function validator(Request $request)
     {

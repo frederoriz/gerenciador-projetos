@@ -17,7 +17,9 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'description' => $this->faker->paragraph,
+            'status' => 'pending',
+            'project_id' => \App\Models\Project::factory(),
         ];
     }
 }
