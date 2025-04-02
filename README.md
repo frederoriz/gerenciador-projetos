@@ -4,15 +4,15 @@
 
 
 #Fazer criação de Tarefa dentro de projetos
-• Criar btn "Criar Tarefa" dentro do Index de Projetos e carregar por JS os dados de project
+• Criar btn "Criar Tarefa" dentro do Index de Projetos e carregar os dados de project OK
 
-#Validar dados ao salvar usando validator
+#Validar dados ao salvar usando validator OK
 
-#Criar CSS básico com SASS
+#Criar CSS básico com SASS OK
 
 #Testes automaticos de:
-• Criação de Projetos e Tarefas
-• Validação de regras e relacionamentos
+• Criação de Projetos e Tarefas OK
+• Validação de regras e relacionamentos OK
 
 #Limpar BD do sqlite, subir para repositorio, colocar o banco vazio no gitignore
 #Removar composer lock e subir para repositorio sem ele,
