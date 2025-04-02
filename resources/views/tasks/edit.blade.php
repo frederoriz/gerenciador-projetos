@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <h1>Editar Tarefa</h1>
-    <form action="{{ route('tasks.store') }}" method="POST">
+    <form action="{{ route('tasks.update', $task) }}" method="POST" enctype="multipart/form-data">
+        @method('PUT')
         @csrf
 
         <div class="mb-3">
@@ -22,14 +23,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="due_date" class="form-label">Data de Entrega*</label>
-            <input type="date" class="form-control" id="due_date" name="due_date" value="{{ old('due_date') }}"
-                required>
-        </div>
-
-        <div class="mb-3">
             <label for="description" class="form-label">Descrição*</label>
-            <textarea class="form-control" id="description" name="description" rows="4" required>{{ old('description') }}</textarea>
+            <textarea class="form-control" id="description" name="description" rows="4" required>{{ old('description') ?? $task->description }}</textarea>
         </div>
 
         <button type="submit" class="btn btn-success">Salvar</button>

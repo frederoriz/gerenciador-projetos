@@ -1,6 +1,7 @@
 #TODO - 
 
-#Popular Controllers
+#Popular Controllers OK
+
 
 #Fazer criação de Tarefa dentro de projetos
 • Criar btn "Criar Tarefa" dentro do Index de Projetos e carregar por JS os dados de project
@@ -15,3 +16,6 @@
 
 #Limpar BD do sqlite, subir para repositorio, colocar o banco vazio no gitignore
 #Removar composer lock e subir para repositorio sem ele,
+
+#Melhorar Controllers
+- Inserir bloco de Try Catch, implementar soft delete

@@ -89,6 +89,12 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')->with('success', 'Projeto excluído com sucesso!');
     }
 
+    /**
+     * Validate the request data.
+     *
+     * @param Request $request
+     * @return void
+     */
     private function validator(Request $request)
     {
         return $request->validate([

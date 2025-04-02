@@ -17,9 +17,24 @@
         <tr>
             <td>{{ $project->title }}</td>
             <td>{{ $project->created_at->format('d/m/Y') }}</td>
-            <td>{{ $project->due_date->format('d/m/Y') }}</td>
+            <td>{{ $project->end_date->format('d/m/Y') }}</td>
             <td>
-                <a href="{{ route('projects.show', $project->id) }}" class="btn btn-sm btn-info">Ver</a>
+                <a href="{{ route('projects.tasks.index', $project ) }}" class="btn btn-sm btn-primary">
+                    <i class="fas fa-eye"></i>
+                </a>
+                <a href="{{ route('projects.tasks.create', $project) }}" class="btn btn-sm btn-success">
+                    <i class="fas fa-plus"></i>
+                </a>
+                <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-sm btn-warning">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <form action="{{ route('projects.destroy', $project->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
             </td>
         </tr>
         @endforeach

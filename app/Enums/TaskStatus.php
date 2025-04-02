@@ -25,11 +25,10 @@ enum TaskStatus: string
      *
      * @return array
      */
-    public function toArray(): array
+    public static function list(): array
     {
-        return [
-            'value' => $this->value,
-            'label' => $this->label(),
-        ];
+        return collect(self::cases())->mapWithKeys(function ($case) {
+            return [$case->value => $case->label()];
+        })->toArray();
     }
 }

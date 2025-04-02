@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <h1>Criar Tarefa</h1>
-<form action="{{ route('tasks.store') }}" method="POST">
+<form action="{{ route('projects.tasks.store', $project) }}" method="POST">
+    @method('POST')
     @csrf
 
     <div class="mb-3">
@@ -22,11 +23,6 @@
                 <option value="{{ $key }}" @if ($selected == $key) selected @endif> {{ $value }}</option>
             @endforeach
         </select>
-    </div>
-
-    <div class="mb-3">
-        <label for="due_date" class="form-label">Data de Entrega*</label>
-        <input type="date" class="form-control" id="due_date" name="due_date" value="{{ old('due_date') }}" required>
     </div>
 
     <div class="mb-3">

@@ -2,6 +2,7 @@
 @section('content')
 <h1>Criar Projeto</h1>
 <form action="{{ route('projects.store') }}" method="POST">
+    @method('POST')
     @csrf
     <div class="mb-3">
         <label for="title" class="form-label">Título*</label>
@@ -9,8 +10,8 @@
     </div>
     
     <div class="mb-3">
-        <label for="due_date" class="form-label">Data de Entrega*</label>
-        <input type="date" class="form-control" id="due_date" name="due_date" value="{{ old('due_date') }}" required>
+        <label for="end_date" class="form-label">Data de Entrega*</label>
+        <input type="date" class="form-control" id="end_date" name="end_date" value="{{ old('end_date') }}" required>
     </div>
 
     <div class="mb-3">

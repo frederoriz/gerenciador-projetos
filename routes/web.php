@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('projects', ProjectController::class);
-Route::resource('tasks', TaskController::class);
+Route::resource('projects.tasks', TaskController::class)->shallow();
 
 
 Route::get('/', function () {
-    return view('projects.index');
+    return redirect()->route('projects.index');
 });
