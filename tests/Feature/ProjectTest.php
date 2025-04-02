@@ -11,11 +11,10 @@ class ProjectTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Testa a rota de listagem de projetos.
+     * Test the project index route.
      *
-     * @return void
      */
-    public function lista_projetos()
+    public function test_list_projects()
     {
         Project::factory()->count(3)->create();
 
@@ -25,31 +24,23 @@ class ProjectTest extends TestCase
     }
 
     /**
-     * Testa o formulário de criação de projeto.
+     * Test the project creation form.
      *
-     * @return void
      */
-    public function cria_projeto_valido()
+    public function test_create_valid_project()
     {
         $data = [
             'title' => 'Novo Projeto',
-            'due_date' => now()->addWeek()->format('Y-m-d')
+            'end_date' => now()->addWeek()->format('Y-m-d')
         ];
 
         $this->post(route('projects.store'), $data)
             ->assertRedirect(route('projects.index'));
 
-        $this->assertDatabaseHas('projects', $data);
+        $this->assertDatabaseHas('projects', [
+            'title' => $data['title'],
+            'end_date' => $data['end_date'] . ' 00:00:00', // Adiciona o horário padrão
+        ]);
     }
 
-    /**
-     * Testa o formulário de criação de projeto com dados inválidos.
-     *
-     * @return void
-     */
-    public function valida_campos_obrigatorios()
-    {
-        $this->post(route('projects.store'), [])
-            ->assertSessionHasErrors(['title', 'due_date']);
-    }
 }

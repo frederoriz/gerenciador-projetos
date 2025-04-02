@@ -14,9 +14,8 @@ class TaskTest extends TestCase
     /**
      * Testa a listagem de tarefas.
      *
-     * @return void
      */
-    public function edita_tarefa()
+    public function test_edit_task()
     {
         $task = Task::factory()->create();
 
@@ -28,9 +27,8 @@ class TaskTest extends TestCase
     /**
      * Testa a criação de uma tarefa com dados válidos.
      *
-     * @return void
      */
-    public function atualiza_tarefa()
+    public function test_update_task()
     {
         $task = Task::factory()->create([
             'description' => 'Antiga',

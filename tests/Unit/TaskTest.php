@@ -15,18 +15,18 @@ class TaskTest extends TestCase
      *
      * @return void
      */
-    public function pertence_a_um_projeto()
+    public function test_belongs_to_a_project()
     {
         $task = Task::factory()->create();
         $this->assertNotNull($task->project);
     }
 
     /**
-     * Testa a criação de uma tarefa com dados válidos.
+     * Test the creation of a task with valid data.
      *
      * @return void
      */
-    public function status_padrao_e_pendente()
+    public function test_default_status_is_pending()
     {
         $task = Task::factory()->create();
         $this->assertEquals('pending', $task->fresh()->status);

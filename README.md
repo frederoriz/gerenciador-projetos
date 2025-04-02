@@ -1,21 +1,66 @@
-#TODO - 
+# Gerenciador de Produtos - Laravel
 
-#Popular Controllers OK
+## 📦 Pré-requisitos
 
+Antes de começar, verifique se seu sistema atende aos seguintes requisitos:
 
-#Fazer criação de Tarefa dentro de projetos
-• Criar btn "Criar Tarefa" dentro do Index de Projetos e carregar os dados de project OK
+- PHP 8.3
+- Composer 2.5+
+- SQLite3
+- Node.js 18+ (para assets frontend)
+- Git
 
-#Validar dados ao salvar usando validator OK
+## 🚀 Instalação
 
-#Criar CSS básico com SASS OK
+Siga estes passos para configurar o projeto localmente:
 
-#Testes automaticos de:
-• Criação de Projetos e Tarefas OK
-• Validação de regras e relacionamentos OK
+### 1. Clonar o repositório
+```bash
+git clone https://github.com/frederoriz/gerenciamento-produtos.git
+cd gerenciamento-produtos
+```
 
-#Limpar BD do sqlite, subir para repositorio, colocar o banco vazio no gitignore
-#Removar composer lock e subir para repositorio sem ele,
+### 2. Instalar dependências PHP
+```bash
+composer install
+```
 
-#Melhorar Controllers
-- Inserir bloco de Try Catch, implementar soft delete
+### 3. Configurar ambiente
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+### 4. Migrar banco de dados
+```bash
+php artisan migrate
+```
+
+### 5. Instalar dependências frontend
+```bash
+npm install
+npm run build
+```
+
+## 🧪 Executando Testes
+
+Para executar a suíte de testes:
+
+```bash
+php artisan test
+```
+
+Para testes com cobertura (requer Xdebug ou PCOV):
+```bash
+php artisan test --coverage-html coverage
+```
+
+## 🌟 Servidor de Desenvolvimento
+
+Inicie o servidor local:
+
+```bash
+php artisan serve
+```
+
+Acesse: [http://localhost:8000](http://localhost:8000)

@@ -21,8 +21,6 @@ class Project extends Model
 
     /**
      * Define a relação entre o projeto e as tarefas.
-     *
-     * @return void
      */
     public function tasks()
     {

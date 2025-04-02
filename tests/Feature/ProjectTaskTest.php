@@ -12,11 +12,10 @@ class ProjectTaskTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Testa a listagem de tarefas de um projeto.
+     * Tests the listing of project tasks.
      *
-     * @return void
      */
-    public function lista_tarefas_do_projeto()
+    public function test_list_project_tasks()
     {
         $project = Project::factory()
             ->hasTasks(3)
@@ -28,11 +27,10 @@ class ProjectTaskTest extends TestCase
     }
 
     /**
-     * Testa o formulário de criação de tarefa.
+     * Tests the task creation form.
      *
-     * @return void
      */
-    public function cria_tarefa_no_projeto()
+    public function test_create_task_in_project()
     {
         $project = Project::factory()->create();
         $taskData = [
